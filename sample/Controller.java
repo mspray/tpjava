@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.web.HTMLEditor;
 import java.net.URL;
@@ -9,11 +10,10 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
+import javafx.scene.web.WebEngine;
 
 
-
-public class Controller {
-
+public class Controller implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -53,21 +53,17 @@ public class Controller {
         textsrcnbl.setText("Lignes: " + nbrl);
     }
 
-
-
-
-    @FXML
-    public void initialize() {
-        assert textsrc != null : "fx:id=\"textsrc\" was not injected: check your FXML file 'sample.fxml'.";
-        assert textsrcnbc != null : "fx:id=\"textsrcnbc\" was not injected: check your FXML file 'sample.fxml'.";
-        assert textsrcnbl != null : "fx:id=\"textsrcnbl\" was not injected: check your FXML file 'sample.fxml'.";
-
-    }
-
     @FXML
     void btnOnAction(ActionEvent e) {
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //textdst = new WebView();
+        //WebEngine we = textdst.getEngine();
+    textdst.getEngine().loadContent("");
+        //we.loadContent("http://google.fr");
+    }
 }
 
 
