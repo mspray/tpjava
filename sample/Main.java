@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 
 public class Main extends Application {
@@ -16,6 +18,14 @@ public class Main extends Application {
         stage.setTitle("Editeur HTML");
         stage.setScene(new Scene(root, 536, 450));
         stage.show();
+        WebView webView = new WebView();
+
+        WebEngine webEngine = webView.getEngine();
+        //
+        // test.getEngine().load("http://google.fr");
+
+        //WebEngine run = test.getEngine();
+        //run.loadContent("http://google.fr");
     }
 
 

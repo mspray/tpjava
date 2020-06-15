@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.web.WebView;
 
 
 
@@ -22,6 +23,13 @@ public class Controller {
 
     @FXML
     private TextArea textsrc;
+
+    @FXML
+    private WebView textdst;
+
+
+    @FXML
+    private Button btn;
 
     @FXML
     private Label textsrcnbc;
@@ -46,12 +54,18 @@ public class Controller {
     }
 
 
+
+
     @FXML
     public void initialize() {
         assert textsrc != null : "fx:id=\"textsrc\" was not injected: check your FXML file 'sample.fxml'.";
         assert textsrcnbc != null : "fx:id=\"textsrcnbc\" was not injected: check your FXML file 'sample.fxml'.";
         assert textsrcnbl != null : "fx:id=\"textsrcnbl\" was not injected: check your FXML file 'sample.fxml'.";
 
+    }
+
+    @FXML
+    void btnOnAction(ActionEvent e) {
     }
 
 }
