@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
@@ -12,28 +13,35 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Label layoutX="395.0" layoutY="115.0" text="Apercu" />
-      <MenuBar layoutY="7.0" prefHeight="29.0" prefWidth="744.0">
+      <MenuBar prefHeight="26.0" prefWidth="858.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Fichier">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#nouveau" text="Nouveau" />
+                  <MenuItem mnemonicParsing="false" text="Ouvrir" />
+                  <MenuItem mnemonicParsing="false" text="Enregistrer" />
+                  <MenuItem mnemonicParsing="false" text="Fermer" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#quitter" text="Quitter" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Edition">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Copier" />
+                  <MenuItem mnemonicParsing="false" text="Couper" />
+                  <MenuItem mnemonicParsing="false" onAction="#coller" text="Coller" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Aide">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="A propos" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
       <Label fx:id="textsrcnbc" layoutX="395.0" layoutY="616.0" text="Caracteres:" />
       <Label fx:id="textsrcnbl" layoutX="521.0" layoutY="616.0" onKeyTyped="#calculer_nombrel" text="Lignes:" />
-      <TextArea fx:id="textsrc" layoutX="10.0" layoutY="101.0" onKeyTyped="#calculer_nombrel" prefHeight="511.0" prefWidth="372.0" />
+      <TextArea fx:id="textsrc" layoutX="10.0" layoutY="101.0" onKeyPressed="#calculer_nombrecrc" onKeyTyped="#calculer_nombrel" prefHeight="511.0" prefWidth="372.0" promptText="CODE HTML ICI" />
       <Button fx:id="btn" layoutX="568.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnOnAction" text="Button" />
       <WebView fx:id="textdst" layoutX="389.0" layoutY="138.0" prefHeight="470.0" prefWidth="464.0" />
    </children>
