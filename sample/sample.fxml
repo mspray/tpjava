@@ -13,16 +13,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Label layoutX="395.0" layoutY="115.0" text="Apercu" />
-      <MenuBar prefHeight="26.0" prefWidth="858.0">
+      <MenuBar fx:id="vbMenu" prefHeight="26.0" prefWidth="858.0">
         <menus>
           <Menu mnemonicParsing="false" text="Fichier">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#nouveau" text="Nouveau" />
                   <MenuItem mnemonicParsing="false" text="Ouvrir" />
-                  <MenuItem mnemonicParsing="false" text="Enregistrer" />
+                  <MenuItem fx:id="menusave" mnemonicParsing="false" onAction="#handlesave" text="Enregistrer" />
                   <MenuItem mnemonicParsing="false" text="Fermer" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#quitter" text="Quitter" />
+                  <MenuItem fx:id="quitter" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edition">
