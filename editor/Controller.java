@@ -1,4 +1,4 @@
-package sample;
+package editor;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -9,16 +9,12 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.input.Clipboard;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
@@ -77,14 +73,6 @@ public class Controller implements Initializable {
             textsrcnbl.setText("Lignes: " + nbrl);
         }
     }
-    @FXML
-    void sauvegarder(ActionEvent e) {
-        String content;
-        content = textsrc.getText();
-        //System.out.println(content);
-        textdst.getEngine().loadContent(content);
-        //textdst.getEngine().loadContent(textsrc); // Prends un string
-    }
 
 
     @FXML
@@ -105,8 +93,7 @@ public class Controller implements Initializable {
         textsrc.clear();
     }
 
-    public void ouvrir(ActionEvent event) {
-    }
+
     public void coller(ActionEvent event) {
         Clipboard systemClipboard = Clipboard.getSystemClipboard();
         String clipboardText = systemClipboard.getString();
@@ -127,13 +114,23 @@ public class Controller implements Initializable {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    private void openFile(String wording, File file){
+        try {
+            PrintWriter write;
+            write = new PrintWriter(file);
+            write.println(wording);
+            write.close();
+        } catch(IOException ex){
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-    public void handlesave(ActionEvent event){
+    public void sauvegarder(ActionEvent event){
 
 
         Window stage = vbMenu.getScene().getWindow();
 
-        fileChooser.setInitialDirectory(new File("C:\\Users\\AM\\IdeaProjects\\testjavafx\\src\\sample")); // go to initialize
+        fileChooser.setInitialDirectory(new File("C:\\Users")); // go to initialize
 
         fileChooser.setTitle("Enregistrer un fichier dans le stockage local");
         String defaultSaveName = "sauvegarde";
@@ -154,32 +151,47 @@ public class Controller implements Initializable {
 
         }
         catch (Exception ex){}
-
-        String content;
-        content = textsrc.getText();
-
-
     }
 
-    public void handleopen(ActionEvent event){
+    public void ouvrir(ActionEvent event) {
         Window stage = vbMenu.getScene().getWindow();
-        fileChooser.setInitialDirectory(new File("C:\\Users\\AM\\IdeaProjects\\testjavafx\\src\\sample")); // go to initialize
-
+       
         fileChooser.setTitle("Ouvrir un fichier");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("text file", "*.txt"),
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("text file", "*.txt"),
                 new FileChooser.ExtensionFilter("html", "*.html"));
+
+        File file = fileChooser.showOpenDialog(stage);
+        fileChooser.setInitialDirectory(file.getParentFile()); // enregistrer le repertoire pour la prochaine fois.
+
+        if ((file == null) || (file.length() == 0))
+            return;
+        File f;
+        FileReader in = null;
 
         try
         {
-            File file = fileChooser.showOpenDialog(stage);
-            fileChooser.setInitialDirectory(file.getParentFile()); // enregistrer le repertoire pour la prochaine fois.
+            in = new FileReader(file);
+            char[] buffer = new char[4096]; // vitesse de lecture
+            int len;
+            textsrc.setText(""); // clean TextArea
+            while ((len = in.read(buffer)) != -1) {
+                String s = new String(buffer, 0, len);
+                textsrc.setText(s);
+            }
+        } catch (IOException e) { textsrc.setText(e.getClass().getName() + ": " + e.getMessage());}
+
+    finally {
+        try {
+            if (in != null)
+                in.close();
+        } catch (IOException e) { // fermeture
         }
-        catch (Exception ex){}
-
-
-
-
     }
+}
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
