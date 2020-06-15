@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        stage.setTitle("Calculatrice");
+        stage.setTitle("Editeur HTML");
         stage.setScene(new Scene(root, 536, 450));
         stage.show();
     }

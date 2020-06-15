@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -11,7 +12,6 @@
    <children>
       <TextField layoutX="387.0" layoutY="143.0" prefHeight="390.0" prefWidth="343.0" />
       <Label layoutX="387.0" layoutY="119.0" text="Apercu" />
-      <TextField layoutX="12.0" layoutY="90.0" prefHeight="459.0" prefWidth="365.0" />
       <MenuBar layoutY="7.0" prefHeight="29.0" prefWidth="744.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -31,6 +31,8 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="392.0" layoutY="541.0" text="Nombre caractere" />
+      <Label fx:id="textsrcnbc" layoutX="395.0" layoutY="541.0" text="Caracteres:" />
+      <Label fx:id="textsrcnbl" layoutX="521.0" layoutY="541.0" onKeyTyped="#calculer_nombrel" text="Lignes:" />
+      <TextArea fx:id="textsrc" layoutX="14.0" layoutY="101.0" onKeyTyped="#calculer_nombrel" prefHeight="430.0" prefWidth="368.0" />
    </children>
 </AnchorPane>
