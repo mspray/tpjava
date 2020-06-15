@@ -1,70 +1,19 @@
-/usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/java --module-path /home/am/Téléchargements/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml,javafx.base --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED --add-modules javafx.base,javafx.graphics --add-reads javafx.base=ALL-UNNAMED --add-reads javafx.graphics=ALL-UNNAMED -javaagent:/home/am/Téléchargements/idea-IU-201.7846.76/lib/idea_rt.jar=38879:/home/am/Téléchargements/idea-IU-201.7846.76/bin -Dfile.encoding=UTF-8 -classpath /home/am/IdeaProjects/untitled1/out/production/untitled1:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx-swt.jar:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx.base.jar:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx.controls.jar:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx.fxml.jar:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx.graphics.jar:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx.media.jar:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx.swing.jar:/home/am/Téléchargements/javafx-sdk-11.0.2/lib/javafx.web.jar sample.Main
-Exception in Application start method
-java.lang.reflect.InvocationTargetException
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:464)
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at java.base/sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:1051)
-Caused by: java.lang.RuntimeException: Exception in Application start method
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:900)
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:195)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: javafx.fxml.LoadException: 
-/home/am/IdeaProjects/untitled1/out/production/untitled1/sample/sample.fxml:38
-
-	at javafx.fxml/javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2625)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2603)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2466)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3237)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3194)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3163)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3136)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:3113)
-	at javafx.fxml/javafx.fxml.FXMLLoader.load(FXMLLoader.java:3106)
-	at sample.Main.start(Main.java:17)
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:846)
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:455)
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:428)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:427)
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:96)
-	at javafx.graphics/com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
-	at javafx.graphics/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$11(GtkApplication.java:277)
-	... 1 more
-Caused by: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
-	at javafx.fxml/javafx.fxml.JavaFXBuilderFactory$ObjectBuilderWrapper$ObjectBuilder.build(JavaFXBuilderFactory.java:237)
-	at javafx.fxml/javafx.fxml.FXMLLoader$ValueElement.processEndElement(FXMLLoader.java:771)
-	at javafx.fxml/javafx.fxml.FXMLLoader.processEndElement(FXMLLoader.java:2838)
-	at javafx.fxml/javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2557)
-	... 17 more
-Caused by: java.lang.reflect.InvocationTargetException
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at javafx.fxml/javafx.fxml.JavaFXBuilderFactory$ObjectBuilderWrapper$ObjectBuilder.build(JavaFXBuilderFactory.java:229)
-	... 20 more
-Caused by: java.lang.IllegalAccessError: superclass access check failed: class com.sun.java.scene.web.WebViewHelper (in unnamed module @0x330a5303) cannot access class com.sun.javafx.scene.ParentHelper (in module javafx.graphics) because module javafx.graphics does not export com.sun.javafx.scene to unnamed module @0x330a5303
-	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
-	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
-	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
-	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
-	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:621)
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:579)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
-	at javafx.scene.web.WebView.<clinit>(WebView.java:1271)
-	at com.sun.javafx.fxml.builder.web.WebViewBuilder.build(WebViewBuilder.java:66)
-	... 25 more
-Exception running application sample.Main
-
-Process finished with exit code 1
-
+/home/am/Téléchargements/jdk1.8.0_251/bin/java -javaagent:/home/am/Téléchargements/idea-IU-201.7846.76/lib/idea_rt.jar=34711:/home/am/Téléchargements/idea-IU-201.7846.76/bin -Dfile.encoding=UTF-8 -classpath /home/am/Téléchargements/jdk1.8.0_251/jre/lib/charsets.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/deploy.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/cldrdata.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/dnsns.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/jaccess.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/jfxrt.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/localedata.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/nashorn.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/sunec.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/sunjce_provider.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/sunpkcs11.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/ext/zipfs.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/javaws.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/jce.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/jfr.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/jfxswt.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/jsse.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/management-agent.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/plugin.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/resources.jar:/home/am/Téléchargements/jdk1.8.0_251/jre/lib/rt.jar:/home/am/Téléchargements/testjavafx1.8/out/production/testjavafx1.8 sample.Main
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:767)
+Caused by: java.lang.UnsupportedOperationException: Internal Error
+	at com.sun.glass.ui.gtk.GtkApplication.lambda$new$5(GtkApplication.java:158)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.glass.ui.gtk.GtkApplication.<init>(GtkApplication.java:140)
+	at com.sun.glass.ui.gtk.GtkPlatformFactory.createApplication(GtkPlatformFactory.java:41)
+	at com.sun.glass.ui.Application.run(Application.java:146)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.startup(QuantumToolkit.java:278)
+	at com.sun.javafx.application.PlatformImpl.startup(PlatformImpl.java:211)
+	at com.sun.javafx.application.LauncherImpl.startToolkit(LauncherImpl.java:675)
+	at com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:337)
+	at com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:328)
+	... 5 more
