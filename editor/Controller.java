@@ -47,8 +47,6 @@ public class Controller implements Initializable {
     @FXML
     private MenuItem menusave;
 
-    @FXML
-    public Button btn;
 
     @FXML
     private Label textsrcnbc;
@@ -88,7 +86,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    void btngeneratehtml(ActionEvent e) {
+    void btngeneratehtml(KeyEvent e) {
         String content;
         content = textsrc.getText();
         //System.out.println(content);
@@ -141,8 +139,10 @@ public class Controller implements Initializable {
             menucoller.setDisable(true);
         }
         else {
-            textsrc.paste();
 
+            // Trouver un moyen pour coller a la place exacte du curseur actuel.
+            textsrc.setCursor(test);
+            textsrc.setText(clipboardText);
 
 
 
