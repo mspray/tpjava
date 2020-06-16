@@ -31,7 +31,7 @@
           <Menu mnemonicParsing="false" text="Edition">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#copier" text="Copier" accelerator="Shortcut+C"/>
-                  <MenuItem mnemonicParsing="false"  text="Couper" accelerator="Shortcut+X"/>
+                  <MenuItem mnemonicParsing="false" onAction="#couper"  text="Couper" accelerator="Shortcut+X"/>
                   <MenuItem fx:id="menucoller" mnemonicParsing="false" onAction="#coller" text="Coller" accelerator="Shortcut+V"/>
             </items>
           </Menu>

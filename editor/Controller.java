@@ -107,6 +107,15 @@ public class Controller implements Initializable {
 
     }
 
+    public void couper(ActionEvent event) {
+        String text = getSelectedText();
+        ClipboardContent content = new ClipboardContent();
+        content.putString(text);
+        Clipboard systemClipboard = Clipboard.getSystemClipboard();
+        systemClipboard.setContent(content);
+        textsrc.setText(textsrc.getText().replace(textsrc.getSelectedText(),""));
+    }
+
 
     public void copier(ActionEvent event) {
         String text = getSelectedText();
