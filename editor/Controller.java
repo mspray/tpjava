@@ -63,14 +63,21 @@ public class Controller implements Initializable {
     @FXML
     void calculer_nombrecrc(KeyEvent event) {
         String text = textsrc.getText();
-        int len = 0;
-        if (text != null) {
-            len = text.length();
+        int taille = textsrc.getLength();
+        int len = 1;
+
+        textsrcnbc.setText("Caracteres: " + len);
+        len = text.length() + 1;
+        textsrcnbc.setText("Caracteres: " + len);
+
+        if (taille == 0) {
+            len = 0;
             textsrcnbc.setText("Caracteres: " + len);
         }
     }
     @FXML
     void calculer_nombrel(KeyEvent event) {
+
         int nbrl = 0;
         String text = textsrc.getText();
         if (text != null) {
@@ -108,6 +115,7 @@ public class Controller implements Initializable {
     }
 
     public void couper(ActionEvent event) {
+        int taille = textsrc.getSelectedText().length();
         String text = getSelectedText();
         ClipboardContent content = new ClipboardContent();
         content.putString(text);
@@ -126,20 +134,20 @@ public class Controller implements Initializable {
     }
 
     public void coller(ActionEvent event) {
+        Cursor test = textsrc.getCursor();
         Clipboard systemClipboard = Clipboard.getSystemClipboard();
-        if (systemClipboard.hasString()){
-
-            String clipboardText = systemClipboard.getString();
-
-            //Cursor p = getCursor();
-            Cursor p = textsrc.getCursor();
-            textsrc.setCursor(p);
-            textsrc.cursorProperty().setValue(p); // Trouver un moyen pour coller a la place exacte du curseur actuel.
-            textsrc.setText(clipboardText);
-
+        String clipboardText = systemClipboard.getString();
+        if (clipboardText.length() == 0){
+            menucoller.setDisable(true);
         }
         else {
-            menucoller.setVisible(false);
+
+            // Trouver un moyen pour coller a la place exacte du curseur actuel.
+            textsrc.setCursor(test);
+            textsrc.setText(clipboardText);
+
+
+
         }
 
     }
@@ -228,6 +236,8 @@ public class Controller implements Initializable {
         //WebEngine render = textdst.getEngine();
         //render.loadContent(String.valueOf(textsrc));
         //we.loadContent("http://google.fr");
+        textsrcnbc.setText("Caracteres: " + "0");
+        textsrcnbl.setText("Lignes: " + "0");
 
     }
 
