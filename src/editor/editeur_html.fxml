@@ -49,7 +49,7 @@
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font></Label>
-      <TextArea fx:id="textsrc" layoutX="10.0" layoutY="101.0" onKeyPressed="#btngeneratehtml" onKeyReleased="#calculer_nombrel" onKeyTyped="#calculer_nombrecrc" prefHeight="506.0" prefWidth="372.0" promptText="CODE HTML ICI" />
+      <TextArea fx:id="textsrc" layoutX="10.0" layoutY="101.0"  onKeyReleased="#onKeyReleased" prefHeight="506.0" prefWidth="372.0" promptText="CODE HTML ICI" />
       <WebView fx:id="textdst" layoutX="389.0" layoutY="138.0" prefHeight="470.0" prefWidth="464.0" />
    </children>
 </AnchorPane>

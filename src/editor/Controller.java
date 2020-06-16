@@ -62,16 +62,14 @@ public class Controller implements Initializable {
     void calculer_nombrecrc(KeyEvent event) {
         String text = textsrc.getText();
         int taille = textsrc.getLength();
-        int len = 1;
-
-        textsrcnbc.setText("Caracteres: " + len);
-        len = text.length() + 1;
-        textsrcnbc.setText("Caracteres: " + len);
+        int len;
 
         if (taille == 0) {
             len = 0;
-            textsrcnbc.setText("Caracteres: " + len);
+        } else {
+            len = text.length();
         }
+        textsrcnbc.setText("Caracteres: " + len);
     }
     @FXML
     void calculer_nombrel(KeyEvent event) {
@@ -91,6 +89,13 @@ public class Controller implements Initializable {
         content = textsrc.getText();
         //System.out.println(content);
         textdst.getEngine().loadContent(content); // Prends un string
+    }
+
+    @FXML
+    void onKeyReleased(KeyEvent e){
+        btngeneratehtml(e);
+        calculer_nombrel(e);
+        calculer_nombrecrc(e);
     }
 
     public void quitter(ActionEvent event){
