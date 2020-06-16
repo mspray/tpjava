@@ -139,13 +139,7 @@ public class Controller implements Initializable {
             menucoller.setDisable(true);
         }
         else {
-
-            // Trouver un moyen pour coller a la place exacte du curseur actuel.
-            textsrc.setCursor(test);
-            textsrc.setText(clipboardText);
-
-
-
+            textsrc.paste();
         }
 
     }
