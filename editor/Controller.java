@@ -1,5 +1,6 @@
 package editor;
 
+import com.sun.deploy.util.StringUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -15,6 +16,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
@@ -38,12 +41,14 @@ public class Controller implements Initializable {
     @FXML
     private MenuBar vbMenu;
 
+    @FXML
+    private MenuItem menucoller;
 
     @FXML
     private MenuItem menusave;
 
     @FXML
-    private Button btn;
+    public Button btn;
 
     @FXML
     private Label textsrcnbc;
@@ -76,32 +81,58 @@ public class Controller implements Initializable {
 
 
     @FXML
-    void btnOnAction(ActionEvent e) {
+    void btngeneratehtml(ActionEvent e) {
         String content;
         content = textsrc.getText();
         //System.out.println(content);
-        textdst.getEngine().loadContent(content);
-        //textdst.getEngine().loadContent(textsrc); // Prends un string
+        textdst.getEngine().loadContent(content); // Prends un string
     }
 
     public void quitter(ActionEvent event){
         Platform.exit();
+
         System.exit(0);
     }
 
     public void nouveau(ActionEvent event){
-        textsrc.clear();
+
+        if (textsrc.getSelectedText()!= null) {
+            textsrc.clear();
+        }
+    }
+    private String getSelectedText() {
+
+        return textsrc.getSelectedText();
+
+
     }
 
 
+    public void copier(ActionEvent event) {
+        String text = getSelectedText();
+        ClipboardContent content = new ClipboardContent();
+        content.putString(text);
+        Clipboard systemClipboard = Clipboard.getSystemClipboard();
+        systemClipboard.setContent(content);
+    }
+
     public void coller(ActionEvent event) {
         Clipboard systemClipboard = Clipboard.getSystemClipboard();
-        String clipboardText = systemClipboard.getString();
-        //Cursor p = getCursor();
-        Cursor p = textsrc.getCursor();
-        textsrc.setCursor(p);
-        textsrc.cursorProperty().setValue(p); // Trouver un moyen pour coller a la place exacte du curseur actuel.
-        textsrc.setText(clipboardText);
+        if (systemClipboard.hasString()){
+
+            String clipboardText = systemClipboard.getString();
+
+            //Cursor p = getCursor();
+            Cursor p = textsrc.getCursor();
+            textsrc.setCursor(p);
+            textsrc.cursorProperty().setValue(p); // Trouver un moyen pour coller a la place exacte du curseur actuel.
+            textsrc.setText(clipboardText);
+
+        }
+        else {
+            menucoller.setVisible(false);
+        }
+
     }
 
     private void saveFile(String wording, File file){
@@ -114,23 +145,14 @@ public class Controller implements Initializable {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void openFile(String wording, File file){
-        try {
-            PrintWriter write;
-            write = new PrintWriter(file);
-            write.println(wording);
-            write.close();
-        } catch(IOException ex){
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
 
     public void sauvegarder(ActionEvent event){
 
 
         Window stage = vbMenu.getScene().getWindow();
 
-        fileChooser.setInitialDirectory(new File("C:\\Users")); // go to initialize
+        fileChooser.setInitialDirectory(new File("C:\\Users")); // go to initialize?
 
         fileChooser.setTitle("Enregistrer un fichier dans le stockage local");
         String defaultSaveName = "sauvegarde";
@@ -189,8 +211,6 @@ public class Controller implements Initializable {
         }
     }
 }
-
-
 
 
     @Override

@@ -21,24 +21,23 @@
         <menus>
           <Menu mnemonicParsing="false" text="Fichier">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#nouveau" text="Nouveau" />
-                  <MenuItem mnemonicParsing="false" onAction="#ouvrir" text="Ouvrir"  />
-                  <MenuItem fx:id="menusave" mnemonicParsing="false" onAction="#sauvegarder"  text="Enregistrer" />
-                  <MenuItem mnemonicParsing="false" text="Fermer" />
+              <MenuItem mnemonicParsing="false" onAction="#nouveau" text="Nouveau" accelerator="Shortcut+N" />
+                  <MenuItem mnemonicParsing="false" onAction="#ouvrir" text="Ouvrir" accelerator="Shortcut+O" />
+                  <MenuItem fx:id="menusave" mnemonicParsing="false" onAction="#sauvegarder"  text="Enregistrer" accelerator="Shortcut+S" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="quitter" mnemonicParsing="false" onAction="#quitter" text="Quitter" />
+                  <MenuItem fx:id="quitter" mnemonicParsing="false" onAction="#quitter" text="Quitter" accelerator="Shortcut+Q"/>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edition">
             <items>
-              <MenuItem mnemonicParsing="false" text="Copier" />
-                  <MenuItem mnemonicParsing="false" text="Couper" />
-                  <MenuItem mnemonicParsing="false" onAction="#coller" text="Coller" />
+              <MenuItem mnemonicParsing="false" onAction="#copier" text="Copier" accelerator="Shortcut+C"/>
+                  <MenuItem mnemonicParsing="false"  text="Couper" accelerator="Shortcut+X"/>
+                  <MenuItem fx:id="menucoller" mnemonicParsing="false" onAction="#coller" text="Coller" accelerator="Shortcut+V"/>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Aide">
             <items>
-              <MenuItem mnemonicParsing="false" text="A propos" />
+              <MenuItem mnemonicParsing="false" text="A propos" accelerator="Shortcut+I" />
             </items>
           </Menu>
         </menus>
@@ -52,7 +51,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font></Label>
       <TextArea fx:id="textsrc" layoutX="10.0" layoutY="101.0" onKeyPressed="#calculer_nombrecrc" onKeyTyped="#calculer_nombrel" prefHeight="506.0" prefWidth="372.0" promptText="CODE HTML ICI" />
-      <Button fx:id="btn" layoutX="9.0" layoutY="35.0" mnemonicParsing="false" onAction="#btnOnAction" prefHeight="54.0" prefWidth="372.0" text="GÉNÉRER RENDU .HTML" textFill="#ea0909">
+      <Button fx:id="btn" layoutX="9.0" layoutY="35.0" mnemonicParsing="false" onAction="#btngeneratehtml" prefHeight="54.0" prefWidth="372.0" text="GÉNÉRER RENDU .HTML" textFill="#ea0909">
          <font>
             <Font name="Tw Cen MT" size="27.0" />
          </font></Button>
